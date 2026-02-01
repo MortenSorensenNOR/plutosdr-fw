@@ -1,0 +1,1 @@
+cmd_/build/custom_firmware/aes_driver.ko := arm-linux-gnueabihf-ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /build/custom_firmware/aes_driver.ko /build/custom_firmware/aes_driver.o /build/custom_firmware/aes_driver.mod.o;  true

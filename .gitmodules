@@ -4,13 +4,13 @@
 	branch = pluto
 [submodule "buildroot"]
 	path = buildroot
-	url = https://github.com/YOUR_USERNAME/buildroot.git
+	url = git@github.com:MortenSorensenNOR/buildroot.git
 	branch = pluto-python
 [submodule "linux"]
 	path = linux
-	url = https://github.com/YOUR_USERNAME/linux.git
+	url = git@github.com:MortenSorensenNOR/linux.git
 	branch = pluto-custom
 [submodule "hdl"]
 	path = hdl
-	url = https://github.com/YOUR_USERNAME/hdl.git
+	url = git@github.com:MortenSorensenNOR/hdl.git
 	branch = pluto-custom

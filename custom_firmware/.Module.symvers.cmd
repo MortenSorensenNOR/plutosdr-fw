@@ -1,0 +1,1 @@
+cmd_/build/custom_firmware/Module.symvers :=  echo >&2 "WARNING: Module.symvers is missing."; echo >&2 "         Modules may not have dependencies or modversions."; echo >&2 "         You may get many unresolved symbol warnings."; sed 's/ko$$/o/'  /build/custom_firmware/modules.order | scripts/mod/modpost -m     -o /build/custom_firmware/Module.symvers -e  -w -T - 

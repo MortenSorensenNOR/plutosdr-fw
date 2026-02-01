@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - -I../linux/include
+    - -I../linux/arch/arm/include
+    - -I../linux/arch/arm/include/generated
+    - -I../linux/include/generated
+    - -I../build/linux-xlnx-xilinx-v2023.1/include/generated
+    - -D__KERNEL__
+    - -DMODULE
+    - -DCONFIG_ARM=1
+  CompilationDatabase: ../build
