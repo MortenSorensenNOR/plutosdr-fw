@@ -12,4 +12,4 @@ podman build -t plutosdr-build .
 podman run -it --rm -v $(pwd):/build:Z -w /build plutosdr-build bash
 
 ## Inside podman
-make XSA_FILE=hdl/projects/pluto/pluto.sdk/system_top.xsa
+make XSA_FILE=prebuilt_bitstreams/pluto.xsa
