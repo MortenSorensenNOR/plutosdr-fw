@@ -10,6 +10,7 @@
 	path = linux
 	url = git@github.com:MortenSorensenNOR/linux.git
 	branch = pluto-custom
+	shallow = true
 [submodule "hdl"]
 	path = hdl
 	url = git@github.com:MortenSorensenNOR/hdl.git
