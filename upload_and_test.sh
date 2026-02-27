@@ -23,7 +23,7 @@ echo "dfu file found"
 echo "Rebooting device into dfu/ram mode"
 ssh_cmd()
 {
-    sshpass -p analog ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no root@192.168.2.1 "$@"
+    sshpass -p analog ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no root@"${ipaddr}" "$@"
     if [ "$?" -ne "0" ] ; then
         echo "ssh command '$1' failed"
         exit 1
@@ -54,7 +54,7 @@ echo "Successfully uploaded firmware"
 echo "Waiting for Pluto to boot..."
 attempt=0
 while [ "${attempt}" -le "30" ]; do
-    if ping -c 1 -W 1 192.168.2.1 &>/dev/null; then
+    if ping -c 1 -W 1 "${ipaddr}" &>/dev/null; then
         echo "Pluto is up"
         break
     fi
@@ -62,10 +62,10 @@ while [ "${attempt}" -le "30" ]; do
     ((attempt++))
 done
 
-# If node B, fix the IP
-if [ "$1" == "B" ]; then
-    echo "Setting node B IP addresses..."
-    sshpass -p analog ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no root@192.168.2.1 \
-        "fw_setenv ipaddr 192.168.3.1 && fw_setenv ipaddr_host 192.168.3.10 && sed -i 's/192.168.2.10/192.168.3.10/' /etc/udhcpd.conf && reboot"
-    echo "Node B IP configured, rebooting..."
-fi
+# # If node B, fix the IP
+# if [ "$1" == "B" ]; then
+#     echo "Setting node B IP addresses..."
+#     sshpass -p analog ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no root@192.168.2.1 \
+#         "fw_setenv ipaddr 192.168.3.1 && fw_setenv ipaddr_host 192.168.3.10 && sed -i 's/192.168.2.10/192.168.3.10/' /etc/udhcpd.conf && reboot"
+#     echo "Node B IP configured, rebooting..."
+# fi
