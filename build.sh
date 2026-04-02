@@ -31,6 +31,6 @@ podman build -t plutosdr-build .
 
 echo "==> Building firmware..."
 podman run --rm -v "$SCRIPT_DIR":/build:Z -w /build plutosdr-build \
-    make XSA_FILE=prebuilt_bitstreams/pluto.xsa
+    make XSA_FILE=prebuilt_bitstreams/pluto_custom.xsa
 
 echo "==> Done. Firmware at build/pluto.dfu"
