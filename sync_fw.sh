@@ -8,7 +8,7 @@ REMOTE="radiotester@100.114.51.4"
 REMOTE_DIR="~/plutosdr_fw"
 
 if [ $# -eq 0 ]; then
-    rsync -avz --exclude="*.gz" --exclude="*.zip" --exclude="*.html" ./build "$REMOTE:$REMOTE_DIR/"
+    rsync -avz  ./build/pluto.dfu "$REMOTE:$REMOTE_DIR/"
     rsync -avz  ./custom_firmware "$REMOTE:$REMOTE_DIR/"
     rsync -avz ./setup_env.sh "$REMOTE:$REMOTE_DIR/"
     rsync -avz ./upload_and_test.sh "$REMOTE:$REMOTE_DIR/"

@@ -192,7 +192,7 @@ static int aes_device_probe(struct platform_device *pdev)
         return ret;
     }
     
-    dev_info(dev, "AES driver loaded. Test with: echo 1 > /sys/devices/platform/aes@80000000/test\n");
+    dev_info(dev, "AES driver loaded. Test with: echo 1 > /sys/devices/soc0/fpga-axi@0/80000000.aes/test\n");
     
     return 0;
 }
