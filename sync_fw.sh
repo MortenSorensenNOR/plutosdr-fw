@@ -8,8 +8,9 @@ REMOTE="radiotester@100.114.51.4"
 REMOTE_DIR="~/plutosdr_fw"
 
 if [ $# -eq 0 ]; then
-    rsync -avz  ./build/pluto.dfu "$REMOTE:$REMOTE_DIR/"
+    rsync -avz  ./build/pluto.dfu "$REMOTE:$REMOTE_DIR/build/"
     rsync -avz  ./custom_firmware "$REMOTE:$REMOTE_DIR/"
+    rsync -avz  ./scripts "$REMOTE:$REMOTE_DIR/"
     rsync -avz ./setup_env.sh "$REMOTE:$REMOTE_DIR/"
     rsync -avz ./upload_and_test.sh "$REMOTE:$REMOTE_DIR/"
 else
